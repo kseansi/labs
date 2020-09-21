@@ -9,6 +9,8 @@ namespace lab_0
             Console.WriteLine("Введите текст, который хотите вывести:    ");
             string a = Console.ReadLine();
             Console.WriteLine(a);
+            
+            Console.ReadKey();
         }
     }
 }
