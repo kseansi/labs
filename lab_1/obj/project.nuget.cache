@@ -1,12 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "CjQTXMgUJ67MdSjBKIj8xtuws3ky/ctGQz/qUzdImrKoJzsxl3idtU7oxxnrCiHTG9DA9ayyCAcIT00yZQU8Ig==",
+  "dgSpecHash": "Qx7MEzceS/uzSZo7r+CJx/caYFknUMZZExsrd3wQtZMsQxal1OotG1mH3cksXDchoY1dZhneedkc3l1RxKdt+Q==",
   "success": true,
   "projectFilePath": "/home/ksenia/Desktop/study/3 sem/OOP/labs/lab_1/lab_1.csproj",
-  "expectedPackageFiles": [
-    "/home/ksenia/.nuget/packages/microsoft.netcore.platforms/1.1.0/microsoft.netcore.platforms.1.1.0.nupkg.sha512",
-    "/home/ksenia/.nuget/packages/netstandard.library/2.0.3/netstandard.library.2.0.3.nupkg.sha512",
-    "/home/ksenia/.nuget/packages/system.drawing.common/4.7.0/system.drawing.common.4.7.0.nupkg.sha512"
-  ],
+  "expectedPackageFiles": [],
   "logs": []
 }
