@@ -3,70 +3,52 @@
 namespace lab_1
 {
     class Program
-    {
-        //создание объекта - круга, квадрата, прямоугольника
-        public Creating()
+    {   
+        public static void Creating()
         {
-                Console.WriteLine("Выберите тип создаваемой фигуры:");
-                Console.WriteLine("1. Круг");
-                Console.WriteLine("2. Квадрат");
-                Console.WriteLine("3. Прямоугольник");
-                int num2 = int.Parse(Console.ReadLine());
-                if (num2 == 1) 
-                {
-                    Console.WriteLine("Введите через запятую ЦЕЛЫЕ: радиус, координату Х центра окружности, координату Y центра окружности");
-                }
-                else 
-                {
-                    Console.WriteLine("Введите через запятую попарно ЦЕЛЫЕ:");
-                    Console.WriteLine("Координату Х1, Координату Y1");
-                    Console.WriteLine("Координату Х2, Координату Y2");
-                    Console.WriteLine("Координату Х3, Координату Y3");
-                    Console.WriteLine("Координату Х4, Координату Y4");
-                }
-                Console.WriteLine("Введите номер желаемой операции:");
-                Console.WriteLine("1. Перемещение на плоскости на заданный вектор");
-                Console.WriteLine("2. Изменение размера относительно геометрического центра фигуры");
-                Console.WriteLine("3. Вращение на заданный угол");
-                Console.WriteLine("4. Выход в главное меню");
-        }
+            Console.WriteLine("Введите цифру, соответствующую тому, какую фигуру нужно создать: \n 1. Круг \n 2. Прямоугольник \n 3. Квадрат");
+            int num2 = int.Parse(Console.ReadLine());
+            if (num2 == 1) 
+            {
+                Console.WriteLine("Введите через ENTER последовательно целые: радиус, координату х центра, координату у центра");
+                int a = int.Parse(Console.ReadLine());
+                int b = int.Parse(Console.ReadLine());
+                int c = int.Parse(Console.ReadLine());
+                Circle newCircle = new Circle();
+                newCircle.radius = a;
+                newCircle.xCenter = b;
+                newCircle.yCenter = c;
+            }
+            else if (num2 == 2) 
+            {
+                Console.WriteLine("Введите через ENTER последовательно целые координаты: х1, х2, х3, х4, у1, у2, у3, у4");
+                int a = int.Parse(Console.ReadLine()); int b = int.Parse(Console.ReadLine()); int c = int.Parse(Console.ReadLine()); int d = int.Parse(Console.ReadLine());
+                int e = int.Parse(Console.ReadLine()); int f = int.Parse(Console.ReadLine()); int g = int.Parse(Console.ReadLine()); int h = int.Parse(Console.ReadLine());
+                Rectangle newRectangle = new Rectangle();
+                newRectangle.x1 = a; newRectangle.x2 = b; newRectangle.x3 = c; newRectangle.x4 = d;
+                newRectangle.y1 = e; newRectangle.y2 = f; newRectangle.y3 = g; newRectangle.y4 = h;
 
-        //перемещение на плоскости на заданный вектор
-        public Moving()
-        {
-
-        }
-
-        //изменение размеров относительно ГЦФ
-        public ChangingScale()
-        {
-
-        }
-
-        //вращение на заданный угол относительно ГЦФ
-        public Rotation()
-        {
-
-        }
-
-        //определение факта наложения двух выбранных фигур
-        public Overlay()
-        {
-
+            }
+            else 
+            {
+                Console.WriteLine("Введите через ENTER последовательно целые координаты: х1, х2, х3, х4, у1, у2, у3, у4");
+                int a = int.Parse(Console.ReadLine()); int b = int.Parse(Console.ReadLine()); int c = int.Parse(Console.ReadLine()); int d = int.Parse(Console.ReadLine());
+                int e = int.Parse(Console.ReadLine()); int f = int.Parse(Console.ReadLine()); int g = int.Parse(Console.ReadLine()); int h = int.Parse(Console.ReadLine());
+                Square newSquare = new Square();
+                newSquare.x1 = a; newSquare.x2 = b; newSquare.x3 = c; newSquare.x4 = d;
+                newSquare.y1 = e; newSquare.y2 = f; newSquare.y3 = g; newSquare.y4 = h;
+            }
         }
         public static void Run()
         { 
-            Console.WriteLine("Здравствуйте и добро пожаловать!");
-            Console.WriteLine("Введите номер желаемых операций:");
-            Console.WriteLine("1. Создание фигуры и работа с ней");
-            Console.WriteLine("2. Проверка наложения 2 фигур");
-            Console.WriteLine("3. ВЫХОД");
+            Console.WriteLine("Здравствуйте и добро пожаловать! \n Введите номер желаемых операций: \n 1. Создание фигуры и работа с ней \n 2. Проверка наложения 2 фигур \n 3. ВЫХОД");
             int num1 = int.Parse(Console.ReadLine());
-            if (num1 == 1)
+            if (num1 == 1) 
             {
-                Creating();                
+                Creating();
             }
-            else if (num1 == 2)
+            /*
+            else if (num1 == 2) 
             {
                 Overlay();
             }
@@ -74,10 +56,43 @@ namespace lab_1
             {
                 Environment.Exit(0);
             }
-        }   
+            */
+        }
+        //определение факта наложения двух выбранных фигур
+        /*
+        public static void Overlay()
+        {
+            Creating();
+            Creating();
+
+        }
+        */
         public static void Main(string[] args)
         {
             Run();
-        }
+        } 
+    }
+    class Circle
+    {
+        public int radius;
+        public int xCenter;
+        public int yCenter;
+        //public static void Moving(){}
+    }
+    class Rectangle
+    {
+        public int x1; public int x2; public int x3; public int x4;
+        public int y1; public int y2; public int y3; public int y4;
+       /* public static void Creating(){}
+        public static void Rotation(){}
+        public static void Moving(){} */
+    }
+    class Square
+    {
+        public int x1; public int x2; public int x3; public int x4;
+        public int y1; public int y2; public int y3; public int y4;
+      /*  public static void Creating(){}
+        public static void Rotation(){}
+        public static void Moving(){} */
     }
 }
