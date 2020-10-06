@@ -54,8 +54,8 @@ namespace lab_94
                     int aa = int.Parse(Console.ReadLine()); int b = int.Parse(Console.ReadLine()); int c = int.Parse(Console.ReadLine()); int d = int.Parse(Console.ReadLine());
                     int e = int.Parse(Console.ReadLine()); int f = int.Parse(Console.ReadLine()); int g = int.Parse(Console.ReadLine()); int h = int.Parse(Console.ReadLine());
                     Rectangle newFig = new Rectangle();
-                    newFig.x1 = float(a); newFig.x2 = b; newFig.x3 = c; newFig.x4 = d;
-                    newFig.y1 = e; newFig.y2 = f; newFig.y3 = g; newFig.y4 = h;
+                    newFig.x1 = (float)aa; newFig.x2 = (float)b; newFig.x3 = (float)c; newFig.x4 = (float)d;
+                    newFig.y1 = (float)e; newFig.y2 = (float)f; newFig.y3 = (float)g; newFig.y4 = (float)h;
                     newRectangle = newFig;
                     Console.WriteLine("Выберите дальнейшие действия: \n 1. Изменение размера \n 2. Поворт \n 3. Перемещение \n 4. ВЫХОД");
                     int num3 = int.Parse(Console.ReadLine());
@@ -83,8 +83,8 @@ namespace lab_94
                     int aa = int.Parse(Console.ReadLine()); int b = int.Parse(Console.ReadLine()); int c = int.Parse(Console.ReadLine()); int d = int.Parse(Console.ReadLine());
                     int e = int.Parse(Console.ReadLine()); int f = int.Parse(Console.ReadLine()); int g = int.Parse(Console.ReadLine()); int h = int.Parse(Console.ReadLine());
                     Square newFig = new Square();
-                    newFig.x1 = a; newFig.x2 = b; newFig.x3 = c; newFig.x4 = d;
-                    newFig.y1 = e; newFig.y2 = f; newFig.y3 = g; newFig.y4 = h;
+                    newFig.x1 = (float)aa; newFig.x2 = (float)b; newFig.x3 = (float)c; newFig.x4 = (float)d;
+                    newFig.y1 = (float)e; newFig.y2 = (float)f; newFig.y3 = (float)g; newFig.y4 = (float)h;
                     newSquare = newFig;  
                     Console.WriteLine("Выберите дальнейшие действия: \n 1. Изменение размера \n 2. Поворт \n 3. Перемещение \n 4. ВЫХОД");
                     int num3 = int.Parse(Console.ReadLine());
@@ -138,10 +138,7 @@ namespace lab_94
             yCenter += movingUp; 
         }
         public override void Rotation()
-        {
-            int lol = 1;
-            lol+=1;
-        }
+        {}
         public override void ChangingSize()
         {
             Console.WriteLine("Пожалуйста, введите, на сколько нужно увеличить фигуру.");
@@ -196,6 +193,10 @@ namespace lab_94
             x1+=movingRight; x2+=movingRight; x3+=movingRight; x4+=movingRight;
             y1+=movingUp; y2+=movingUp; y3+=movingUp; y4+=movingUp;
             yCenter += movingUp; 
+        }
+        public static void FindCenter()
+        {
+
         }
         public override void Rotation()
         {
