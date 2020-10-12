@@ -13,11 +13,11 @@ namespace lab_2
     {
 
     }
-    public static ComplexNumber operator + (ComplexNumber comNum, float num)
+    public static ComplexNumber operator + (ComplexNumber comNum1, ComplexNumber comNum2)
     {
 
     }
-    public static ComplexNumber operator - (ComplexNumber comNum, float num)
+    public static ComplexNumber operator - (ComplexNumber comNum1, ComplexNumber comNum2)
     {
 
     }
