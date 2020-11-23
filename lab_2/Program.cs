@@ -29,6 +29,7 @@ namespace lab_2
                 Console.WriteLine("Введите множитель");
                 int factor = int.Parse(Console.ReadLine());
                 complex *= factor;
+                Console.WriteLine("z = "+complex.real+" + i*("+complex.imaginary+")");
             }
             else
             {//действия с двумя комплаксными числами (сложение и вычитание)
@@ -56,10 +57,12 @@ namespace lab_2
                 if (tmp2 == 1)
                 {//сложение
                     complex1 += complex2;
+                    Console.WriteLine("z = "+complex1.real+" + i*("+complex1.imaginary+")");
                 }
                 else
                 {//вычитание
                     complex1-=complex2;
+                    Console.WriteLine("z = "+complex1.real+" + i*("+complex1.imaginary+")");
                 }
             }
         }
