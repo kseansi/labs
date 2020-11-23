@@ -9,26 +9,16 @@ namespace lab_2
 {
     class Program
     {
+        
         static void Main(string[] args)
         {
             Console.WriteLine("1. Операции с одним к.ч.");
             Console.WriteLine("2. Операции с двумя к.ч.");
             int tmp1 = int.Parse(Console.ReadLine());
             if (tmp1 == 1)
-            {//действия с одним комплексным числом (число в алгебраической форме и умножение на вещественное число)
-                Console.WriteLine("1. Перевести число в алгебраическую форму");
-                Console.WriteLine("2. Умножить к.ч. на вещественное число");
-                int tmp2 = int.Parse(Console.ReadLine());
-                if (tmp2 == 1)
-                {//число в алгебраической форме
-                    Console.WriteLine("1. Операции с одним к.ч.");
-                    Console.WriteLine("1. Перевести число в алгебраическую форму");
-                }
-                else
-                {//умножение на вещественное число
-                    Console.WriteLine("1. Операции с одним к.ч.");
-                    Console.WriteLine("2. Умножить к.ч. на вещественное число");
-                }
+            {//действия с одним комплексным числом (умножение на вещественное число)
+                Console.WriteLine("Введите множитель");
+                int factor = int.Parse(Console.ReadLine());
             }
             else
             {//действия с двумя комплаксными числами (сложение и вычитание)
@@ -49,18 +39,35 @@ namespace lab_2
         }
     }
     class ComplexNumber
-    {/*
+    {
+        public int real;
+        public int imaginary;
         public static ComplexNumber operator + (ComplexNumber comNum1, ComplexNumber comNum2)
         {
-
+            ComplexNumber CN = new ComplexNumber
+            {
+                real = comNum1.real+comNum2.real,
+                imaginary = comNum1.imaginary+comNum2.imaginary
+            };
+            return CN;  
         }
         public static ComplexNumber operator - (ComplexNumber comNum1, ComplexNumber comNum2)
         {
-
+            ComplexNumber CN = new ComplexNumber
+            {
+                real = comNum1.real-comNum2.real,
+                imaginary = comNum1.imaginary-comNum2.imaginary
+            };
+            return CN;  
         }
-        public static ComplexNumber operator * (ComplexNumber comNum, float num)
+        public static ComplexNumber operator * (ComplexNumber comNum, int num)
         {
-
-        }*/
+            ComplexNumber CN = new ComplexNumber
+            {
+                real = comNum.real*num,
+                imaginary = comNum.imaginary*num
+            };
+            return CN;  
+        }
     } 
 }
