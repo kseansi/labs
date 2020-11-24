@@ -1,0 +1,13 @@
+/home/ksenia/Desktop/study/3 sem/OOP/labs/lab_3/bin/Debug/netcoreapp3.1/lab_3
+/home/ksenia/Desktop/study/3 sem/OOP/labs/lab_3/bin/Debug/netcoreapp3.1/lab_3.deps.json
+/home/ksenia/Desktop/study/3 sem/OOP/labs/lab_3/bin/Debug/netcoreapp3.1/lab_3.runtimeconfig.json
+/home/ksenia/Desktop/study/3 sem/OOP/labs/lab_3/bin/Debug/netcoreapp3.1/lab_3.runtimeconfig.dev.json
+/home/ksenia/Desktop/study/3 sem/OOP/labs/lab_3/bin/Debug/netcoreapp3.1/lab_3.dll
+/home/ksenia/Desktop/study/3 sem/OOP/labs/lab_3/bin/Debug/netcoreapp3.1/lab_3.pdb
+/home/ksenia/Desktop/study/3 sem/OOP/labs/lab_3/obj/Debug/netcoreapp3.1/lab_3.csprojAssemblyReference.cache
+/home/ksenia/Desktop/study/3 sem/OOP/labs/lab_3/obj/Debug/netcoreapp3.1/lab_3.AssemblyInfoInputs.cache
+/home/ksenia/Desktop/study/3 sem/OOP/labs/lab_3/obj/Debug/netcoreapp3.1/lab_3.AssemblyInfo.cs
+/home/ksenia/Desktop/study/3 sem/OOP/labs/lab_3/obj/Debug/netcoreapp3.1/lab_3.csproj.CoreCompileInputs.cache
+/home/ksenia/Desktop/study/3 sem/OOP/labs/lab_3/obj/Debug/netcoreapp3.1/lab_3.dll
+/home/ksenia/Desktop/study/3 sem/OOP/labs/lab_3/obj/Debug/netcoreapp3.1/lab_3.pdb
+/home/ksenia/Desktop/study/3 sem/OOP/labs/lab_3/obj/Debug/netcoreapp3.1/lab_3.genruntimeconfig.cache
