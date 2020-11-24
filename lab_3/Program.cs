@@ -33,9 +33,12 @@ namespace lab_3
             
         }
     }
-    public enum position
+    public enum Position
     {
-
+        Pawn,
+        Novice,
+        Adept,
+        Luminary
     }
     public class Employee 
     {
@@ -46,13 +49,5 @@ namespace lab_3
             _id = id;
             _fio = fio;
         }
-    }
-    public class Hourly : Employee
-    {
-
-    }
-    public class Fixed : Employee
-    {
-        
     }
 }
