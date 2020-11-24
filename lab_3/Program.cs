@@ -35,9 +35,22 @@ namespace lab_3
     {
 
     }
-    public abstract class Employee 
+    public class Employee 
+    {
+        protected int _id;
+        protected string _fio;
+        public Employee(int id, string fio)
+        {
+            _id = id;
+            _fio = fio;
+        }
+    }
+    public class Hourly : Employee
+    {
+
+    }
+    public class Fixed : Employee
     {
         
-
     }
 }
