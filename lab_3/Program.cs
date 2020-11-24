@@ -23,10 +23,11 @@ XML.
 */
 
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Collections.Concurrent;
 using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Collections.Concurrent;
+using System.Collections.Specialized;
 
 namespace lab_3
 {
@@ -62,6 +63,8 @@ namespace lab_3
             _fio = fio;
         }
         protected Employee() {}
-        
+        public string Birthday {get; set;}
+        public abstract double Salary {get;}
     }
+    
 }
