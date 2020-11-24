@@ -23,6 +23,10 @@ XML.
 */
 
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Collections.Concurrent;
+using System.Collections;
 
 namespace lab_3
 {
@@ -40,8 +44,16 @@ namespace lab_3
         Adept,
         Luminary
     }
-    public class Employee 
+    public abstract class Employee 
     {
+        private static readonly Dictionary<Position, double> _prize = new Dictionary<Position, double>
+        {
+            [Position.Pawn] = 20,
+            [Position.Novice] = 300,
+            [Position.Adept] = 4000,
+            [Position.Luminary] = 50000
+
+        };
         protected int _id;
         protected string _fio;
         public Employee(int id, string fio)
@@ -49,5 +61,7 @@ namespace lab_3
             _id = id;
             _fio = fio;
         }
+        protected Employee() {}
+        
     }
 }
