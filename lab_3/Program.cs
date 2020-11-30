@@ -37,7 +37,30 @@ namespace lab_3
     {
         static void Main(string[] args)
         {
-            
+            var myOrg = new Organisation();
+            myOrg.Add(new Hourly(1, "firstname lastname", "01/01/2001", Position.Pawn, 23));
+            myOrg.Add(new Stated(2, "my friend", "01/11/2041", Position.Novice, 2345));
+            myOrg.Add(new Hourly(3, "missss lissss", "30/12/1234", Position.Adept, 443));
+
+            myOrg.SortBySalaryAndName();
+
+            const string fileName = "MyOrg.xml";
+            myOrg.ToXml(fileName);
+            try
+            {
+                var myOrgNew = Organisation.FromXml(fileName);
+                foreach (var employee in myOrgNew.GetEmployees())
+                {
+                    Console.WriteLine($"Employee: {employee._id}, {employee._fio}, {employee.Birthday}, {employee.Salary}");
+                }
+                Console.WriteLine($"\nTotal Salary = {myOrgNew.TotalSalary}");
+            }
+            catch (System.Exception)
+            {
+                
+                throw;
+            }
+
         }
     }
     public enum Position
@@ -47,7 +70,7 @@ namespace lab_3
         Adept,
         Luminary
     }
-    
+
     [XmlInclude(typeof(Hourly))]
     [XmlInclude(typeof(Stated))]
     public abstract class Employee 
@@ -62,7 +85,7 @@ namespace lab_3
         };
         protected Position _type;
         protected double _prize;
-        protected int _id;
+        public int _id;
         public string _fio;
         protected Employee() {}
         public Employee(int id, string fio, string birthday, Position type)
@@ -130,10 +153,6 @@ namespace lab_3
         }
         public void Add(Employee employee)
         {
-            if (false)
-            {
-                throw new Exception(nameof(employee));
-            }
             _employees.Add(employee);
         }
         public IEnumerable<Employee> GetEmployees()

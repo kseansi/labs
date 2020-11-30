@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<ArrayOfEmployee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Employee xsi:type="Hourly">
+    <_id>1</_id>
+    <_fio>firstname lastname</_fio>
+    <Type>Pawn</Type>
+    <Birthday>01/01/2001</Birthday>
+    <rate>0</rate>
+  </Employee>
+  <Employee xsi:type="Stated">
+    <_id>2</_id>
+    <_fio>my friend</_fio>
+    <Type>Novice</Type>
+    <Birthday>01/11/2041</Birthday>
+    <rate>0</rate>
+  </Employee>
+  <Employee xsi:type="Hourly">
+    <_id>3</_id>
+    <_fio>missss lissss</_fio>
+    <Type>Adept</Type>
+    <Birthday>30/12/1234</Birthday>
+    <rate>0</rate>
+  </Employee>
+</ArrayOfEmployee>
