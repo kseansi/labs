@@ -107,5 +107,33 @@ namespace lab_3
         {
             get {return rate+_prize;}
         }
-    }  
+    }
+    public class Organisation 
+    {
+        private readonly List<Employee> _employees = new List<Employee>();
+        public double TotalSalary
+        {
+            get 
+            {
+                double allsalary = 0;
+                foreach (var employee in _employees)
+                {
+                    allsalary += employee.Salary;
+                }
+                return allsalary;
+            }
+        }
+        public void Add(Employee employee)
+        {
+            if (false)
+            {
+                throw new Exception(nameof(employee));
+            }
+            _employees.Add(employee);
+        }
+        public IEnumerable<Employee> GetEmployees()
+        {
+            return _employees;
+        }
+    }
 }
