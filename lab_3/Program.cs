@@ -38,29 +38,57 @@ namespace lab_3
         static void Main(string[] args)
         {
             var myOrg = new Organisation();
-            myOrg.Add(new Hourly(1, "firstname lastname", "01/01/2001", Position.Pawn, 23));
-            myOrg.Add(new Stated(2, "my friend", "01/11/2041", Position.Novice, 2345));
-            myOrg.Add(new Hourly(3, "missss lissss", "30/12/1234", Position.Adept, 443));
-
-            myOrg.SortBySalaryAndName();
-
-            const string fileName = "MyOrg.xml";
-            myOrg.ToXml(fileName);
-            try
+            const string fileName = "MyOrg.xml";         
+            Console.WriteLine("1. Считать из файла");
+            Console.WriteLine("2. Ввести самостоятельно");
+            int choise = int.Parse(Console.ReadLine());
+            if (choise == 1)
             {
-                var myOrgNew = Organisation.FromXml(fileName);
-                foreach (var employee in myOrgNew.GetEmployees())
+                try
                 {
-                    Console.WriteLine($"Employee: {employee._id}, {employee._fio}, {employee.Birthday}, {employee.Salary}");
+                    var myOrgNew = Organisation.FromXml(fileName);
+                    myOrgNew.SortBySalaryAndName();
+                    foreach (var employee in myOrgNew.GetEmployees())
+                    {
+                        Console.WriteLine($"Employee: {employee._id}, {employee._fio}, {employee.Birthday}, {employee.Salary}");
+                    }
+                    Console.WriteLine($"\nTotal Salary = {myOrgNew.TotalSalary}");
                 }
-                Console.WriteLine($"\nTotal Salary = {myOrgNew.TotalSalary}");
+                catch (System.Exception)
+                {
+                    
+                    throw;
+                }   
             }
-            catch (System.Exception)
+            else
             {
-                
-                throw;
+                Console.WriteLine("Сколько?");
+                int num = int.Parse(Console.ReadLine());
+                for (int i = 0; i < num; i++)
+                {
+                    int id = int.Parse(Console.ReadLine());
+                    string fio = Console.ReadLine();
+                    string birthday = Console.ReadLine();
+                    int pos = int.Parse(Console.ReadLine());
+                    Position position = new Position();
+                    if (pos == 1){position = Position.Pawn;}
+                    else if (pos == 2){position = Position.Novice;}
+                    else if (pos == 3){position = Position.Adept;}
+                    else {position = Position.Luminary;}
+                    double rate = double.Parse(Console.ReadLine());
+                    int hourorstate = int.Parse(Console.ReadLine());
+                    if (hourorstate == 1){myOrg.Add(new Hourly(id, fio, birthday, position, rate));}
+                    else {myOrg.Add(new Stated(id, fio, birthday, position, rate));}
+                    
+                }
+                myOrg.SortBySalaryAndName();
+                myOrg.ToXml(fileName);
+                foreach (var employee in myOrg.GetEmployees())
+                    {
+                        Console.WriteLine($"Employee: {employee._id}, {employee._fio}, {employee.Birthday}, {employee.Salary}");
+                    }
+                Console.WriteLine($"\nTotal Salary = {myOrg.TotalSalary}");
             }
-
         }
     }
     public enum Position
@@ -111,29 +139,29 @@ namespace lab_3
     {
         private const double k = 166.4;
         public Hourly() {}
-        public Hourly(int id, string fio, string birthday, Position type, double salary)
+        public Hourly(int id, string fio, string birthday, Position type, double rate)
         :base(id, fio, birthday, type)
         {
-            salary = Salary;
+            Rate = rate;
         }
-        public int rate {get; set;}
+        public double Rate {get; set;}
         public override double Salary 
         {
-            get {return k*rate + _prize;}
+            get {return k*Rate + _prize;}
         }
     }
     public class Stated : Employee 
     {
         public Stated() {}
-        public Stated(int id, string fio, string birthday, Position type, double salary)
+        public Stated(int id, string fio, string birthday, Position type, double rate)
         :base(id, fio, birthday, type) 
         {
-            salary = Salary;
+            Rate = rate;
         }
-        public int rate {get; set;}
+        public double Rate {get; set;}
         public override double Salary 
         {
-            get {return rate+_prize;}
+            get {return Rate+_prize;}
         }
     }
     public class Organisation 
