@@ -47,7 +47,7 @@ namespace lab_3
     }
     public abstract class Employee 
     {
-        private static readonly Dictionary<Position, double> _prize = new Dictionary<Position, double>
+        private static readonly Dictionary<Position, double> _prizes = new Dictionary<Position, double>
         {
             [Position.Pawn] = 20,
             [Position.Novice] = 300,
@@ -55,16 +55,39 @@ namespace lab_3
             [Position.Luminary] = 50000
 
         };
+        protected Position _type;
+        protected double _prize;
         protected int _id;
         protected string _fio;
-        public Employee(int id, string fio)
+        protected Employee() {}
+        public Employee(int id, string fio, string birthday, Position type)
         {
             _id = id;
             _fio = fio;
+            Birthday = birthday;
+            Type = type;
         }
-        protected Employee() {}
+        public Position Type
+        {
+            get {return _type;}
+            set 
+            {
+                _type = value;
+                _prize = _prizes[_type];
+            }
+        }
         public string Birthday {get; set;}
         public abstract double Salary {get;}
     }
+    /**public class Hourly : Employee 
+    {
+        private const double k = 166.4;
+        public Hourly() {}
+        public Hourly()
+    }
+    public class Stated : Employee 
+    {
+        public Stated() {}
+    }**/
     
 }
