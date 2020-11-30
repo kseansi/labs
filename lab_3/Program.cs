@@ -28,6 +28,8 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Collections.Concurrent;
 using System.Collections.Specialized;
+using System.Xml.Serialization;
+using System.IO;
 
 namespace lab_3
 {
@@ -45,6 +47,9 @@ namespace lab_3
         Adept,
         Luminary
     }
+    
+    [XmlInclude(typeof(Hourly))]
+    [XmlInclude(typeof(Stated))]
     public abstract class Employee 
     {
         private static readonly Dictionary<Position, double> _prizes = new Dictionary<Position, double>
@@ -135,7 +140,7 @@ namespace lab_3
         {
             return _employees;
         }
-        private class BySalaryComparer : IComparer<Employee>
+        private class BySalaryAndNameComparer : IComparer<Employee>
         {
             public int Compare(Employee x, Employee y)
             {
@@ -149,7 +154,27 @@ namespace lab_3
         }
         public void SortBySalaryAndName()
         {
-            _employees.Sort(new BySalaryComparer());
+            _employees.Sort(new BySalaryAndNameComparer());
+        }
+        public void ToXml(string fileName)
+        {
+            var serializer = new XmlSerializer(typeof(List<Employee>));
+            using (var stream = File.OpenWrite(fileName))
+            {
+                serializer.Serialize(stream, _employees);
+                stream.Flush();
+            }
+        }
+        public static Organisation FromXml(string fileName)
+        {
+            var org = new Organisation();
+            var serializer = new XmlSerializer(typeof(List<Employee>));
+            using (var stream = File.OpenRead(fileName))
+            {
+                var employees = serializer.Deserialize(stream) as IEnumerable<Employee>;
+                if (employees != null) {org._employees.AddRange(employees);}
+            }
+            return org;
         }
     }
 }
