@@ -79,15 +79,33 @@ namespace lab_3
         public string Birthday {get; set;}
         public abstract double Salary {get;}
     }
-    /**public class Hourly : Employee 
+    public class Hourly : Employee 
     {
         private const double k = 166.4;
         public Hourly() {}
-        public Hourly()
+        public Hourly(int id, string fio, string birthday, Position type, double salary)
+        :base(id, fio, birthday, type)
+        {
+            salary = Salary;
+        }
+        public int rate {get; set;}
+        public override double Salary 
+        {
+            get {return k*rate + _prize;}
+        }
     }
     public class Stated : Employee 
     {
         public Stated() {}
-    }**/
-    
+        public Stated(int id, string fio, string birthday, Position type, double salary)
+        :base(id, fio, birthday, type) 
+        {
+            salary = Salary;
+        }
+        public int rate {get; set;}
+        public override double Salary 
+        {
+            get {return rate+_prize;}
+        }
+    }  
 }
