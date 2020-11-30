@@ -58,7 +58,7 @@ namespace lab_3
         protected Position _type;
         protected double _prize;
         protected int _id;
-        protected string _fio;
+        public string _fio;
         protected Employee() {}
         public Employee(int id, string fio, string birthday, Position type)
         {
@@ -134,6 +134,22 @@ namespace lab_3
         public IEnumerable<Employee> GetEmployees()
         {
             return _employees;
+        }
+        private class BySalaryComparer : IComparer<Employee>
+        {
+            public int Compare(Employee x, Employee y)
+            {
+                int compare = x.Salary.CompareTo(y.Salary);
+                if (compare == 0) 
+                {
+                    compare = x._fio.CompareTo(y._fio);
+                }
+                return compare;
+            }
+        }
+        public void SortBySalaryAndName()
+        {
+            _employees.Sort(new BySalaryComparer());
         }
     }
 }
