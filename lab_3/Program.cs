@@ -30,6 +30,7 @@ using System.Collections.Concurrent;
 using System.Collections.Specialized;
 using System.Xml.Serialization;
 using System.IO;
+using System.Linq;
 
 namespace lab_3
 {
@@ -46,13 +47,13 @@ namespace lab_3
             {
                 try
                 {
-                    var myOrgNew = Organisation.FromXml(fileName);
-                    myOrgNew.SortBySalaryAndName();
-                    foreach (var employee in myOrgNew.GetEmployees())
+                    myOrg = Organisation.FromXml(fileName);
+                    myOrg.SortBySalaryAndName();
+                    foreach (var employee in myOrg.GetEmployees())
                     {
                         Console.WriteLine($"Employee: {employee._id}, {employee._fio}, {employee.Birthday}, {employee.Salary}");
                     }
-                    Console.WriteLine($"\nTotal Salary = {myOrgNew.TotalSalary}");
+                    Console.WriteLine($"\nTotal Salary = {myOrg.TotalSalary}");
                 }
                 catch (System.Exception)
                 {
@@ -79,6 +80,7 @@ namespace lab_3
                     int hourorstate = int.Parse(Console.ReadLine());
                     if (hourorstate == 1){myOrg.Add(new Hourly(id, fio, birthday, position, rate));}
                     else {myOrg.Add(new Stated(id, fio, birthday, position, rate));}
+                    Console.WriteLine("Next:");
                     
                 }
                 myOrg.SortBySalaryAndName();
@@ -89,6 +91,25 @@ namespace lab_3
                     }
                 Console.WriteLine($"\nTotal Salary = {myOrg.TotalSalary}");
             }
+            Console.WriteLine("Дальнейшие действия? \n1. Первые 5 имён \n2. Последние 3 id \n3. Выход");
+            int choise1 = int.Parse(Console.ReadLine());
+            if (choise1 == 1)
+            {
+                foreach (var employee in myOrg.GetEmployees().Take(5))
+                    {
+                        Console.WriteLine($"Name: {employee._fio}");
+                    }
+            }
+            else if (choise1 == 2)
+            {
+                int countt = myOrg.GetEmployees().Count();
+                countt-=3;
+                foreach (var employee in myOrg.GetEmployees().Skip(countt).Take(5))
+                    {
+                        Console.WriteLine($"Id: {employee._id}");
+                    }                
+            }
+            else{Environment.Exit(0);}
         }
     }
     public enum Position
